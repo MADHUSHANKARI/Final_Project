@@ -78,9 +78,7 @@ function SignUp() {
         <button type="submit">Sign Up</button>
       </form>
       <div>
-      {/* <p>
-        Already have an account? <Link to="/login">Login</Link>
-      </p> */}
+     
       </div>
     </div>
   );
