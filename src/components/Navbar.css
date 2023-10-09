@@ -1,0 +1,42 @@
+/* NavBar.css */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.navbar-logo img {
+  max-height: 40px;
+}
+
+.navbar-links ul {
+  list-style: none;
+  display: flex; /* Display items horizontally */
+  gap: 20px;
+  padding: 0;
+}
+
+.navbar-links li {
+  font-size: 18px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+/* .home{
+  background-image: url(https://eventacademy.com/wp-content/uploads/2012/05/sweet-ice-cream-photography-93638-unsplash.jpg);
+}
+.about{
+  background-image: url(https://eventacademy.com/wp-content/uploads/2012/05/sweet-ice-cream-photography-93638-unsplash.jpg);
+}
+.sinup{
+  background-color: #3c3939;
+} */

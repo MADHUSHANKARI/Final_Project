@@ -1,0 +1,91 @@
+/* SignUp.css */
+body {
+  background-image: url('https://scopeims.com/wp-content/uploads/2019/03/PHOTOFINE-51-compressor.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional: Keeps the background fixed */
+  background-position: center center;
+  margin: 0;
+  padding: 0;
+}
+.signup {
+  /* Background image styles */
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional: Keeps the background fixed */
+  background-position: center center;
+  /* Other styles for the form container */
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  background-color: rgba(250, 246, 246, 0.786); /* Add an overlay for readability */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.signup h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.link-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.link-container a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link-container a:hover {
+  color: #0056b3;
+}
+
+  
