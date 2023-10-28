@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 import './Login.css'; // Import your login page styles here
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useNavigate } from 'react-router-dom';
@@ -24,6 +25,8 @@ const Login = () => {
   });
 
   return (
+    <div>
+      <Navbar/>
     <div className='loginpage'>
 
       <Formik
@@ -39,7 +42,7 @@ const Login = () => {
             toast.success('Login successful', { autoClose: 3000 });
             localStorage.setItem('valid', response.data);
             localStorage.setItem('email', values.email);
-            navigate('/Dashboard');
+            navigate('/User');
           } catch (error) {
             console.error(error);
             const errorMessage = error.response?.data || 'An error occurred';
@@ -84,7 +87,7 @@ const Login = () => {
         )}
       </Formik>
       </div>
-    
+      </div>
   );
 };
 
