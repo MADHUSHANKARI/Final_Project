@@ -59,7 +59,7 @@ const SignUp = () => {
             validationSchema={SignupSchema}
             onSubmit={async (values) => {
               axios
-                .post('http://localhost:5000/v1/register', values)
+                .post('http://localhost:5001/v1/register', values)
                 .then((res) => {
                   if (res && res.data) {
                     console.log(res.data);

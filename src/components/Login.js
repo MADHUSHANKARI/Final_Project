@@ -37,7 +37,7 @@ const Login = () => {
         validationSchema={LoginSchema}
         onSubmit={async (values, { resetForm }) => {
           try {
-            const response = await axios.post('http://localhost:5000/v1/login', values);
+            const response = await axios.post('http://localhost:5001/v1/login', values);
             console.log(response.data);
             toast.success('Login successful', { autoClose: 3000 });
             localStorage.setItem('valid', response.data);
@@ -76,7 +76,7 @@ const Login = () => {
                 Login
               </button>
               <div className="forgot-password">
-                <a href="#">Forgot password?</a>
+                <a href="ForgotPassword">Forgot password?</a>
               </div>
               <Link to="/Signup" state={{}}>
                 <button className="create-account-button">Create new account</button>
