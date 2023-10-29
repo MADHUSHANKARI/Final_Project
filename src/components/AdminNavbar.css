@@ -1,0 +1,40 @@
+#sidebar {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 20px;
+  }
+  
+  #sidebar.active {
+    left: 0;
+  }
+  
+  #sidebar .sidebar-header {
+    text-align: center;
+    padding: 20px;
+    background-color: #343a40;
+  }
+  
+  #sidebar ul.components {
+    padding: 0;
+  }
+  
+  #sidebar ul.components li a {
+    padding: 10px;
+    font-size: 18px;
+    display: block;
+  }
+  
+  #sidebar ul.components li a:hover {
+    background-color: #343a40;
+    color: white;
+  }
+  
+  /* Add your own custom styling here */
+  
+  
