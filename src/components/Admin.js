@@ -15,7 +15,10 @@ const Admin = ({ setIsLoggedIn }) => {
     };
 
     return (
-        <AdminNavbar handleLogout={handleLogout} />
+        <div>
+            <h2>hello</h2>
+        </div>
+        
 
     )
 };

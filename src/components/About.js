@@ -1,9 +1,13 @@
 import React from 'react';
 import './About.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-function About() {
+import Navbar from './Navbar';
+
+const About=()=> {
   return (
+    <div><Navbar/>
     <div className="about">
+      
       <div className='about1'><h2>About Us</h2>
         <p>MY HALL VISSION is more than just a company; we're a group of creative minds, tech enthusiasts, and event management experts. Our team is comprised of individuals with backgrounds in event planning,furniture arrangement and design, and project management. Together, we have a shared vision of redefining event experiences.</p>
       </div>
@@ -77,6 +81,7 @@ function About() {
 
            <p>you're choosing a partner dedicated to transforming your event into a remarkable experience. We believe in the power of innovation, and we're committed to helping you stand out in a competitive market.
           Join us on this exciting journey to explore the endless possibilities of 3D simulation in event management. Contact us today to discuss how we can make your next event truly unforgettable!</p>
+      </div>
       </div>
     
   );
