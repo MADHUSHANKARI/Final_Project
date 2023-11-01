@@ -98,4 +98,50 @@ router.post("/register", async (req, res) => {
           return res.status(400).json(error)
       }
       })
+
+
+      router.post("/resetPassword", async (req, res) => {
+        try {
+          const { email, newPassword } = req.body;
+      
+          const user = await securitySchema.findOne({ email });
+      
+          if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+          }
+      
+          const hashedPassword = await hashPassword(newPassword);
+          user.password = hashedPassword;
+          await user.save();
+      
+          return res.status(200).json({ message: 'Password updated successfully' });
+        } catch (error) {
+          console.error(error);
+          return res.status(500).json({ message: 'Internal server error' });
+        }
+      });
+
+
+      router.post("/bookDate", async (req, res) => {
+        try {
+          const { date, userEmail } = req.body; // Assuming userEmail is included in the request
+          const isDateBooked = await Booking.findOne({ date });
+      
+          if (isDateBooked) {
+            return res.status(400).json("Date already booked");
+          }
+      
+          const newBooking = new Booking({
+            date: date,
+            userEmail: userEmail, // Storing the user's email
+          });
+      
+          await newBooking.save();
+          return res.status(200).json("Date booked successfully");
+        } catch (error) {
+          console.error(error);
+          return res.status(500).json("Internal server error");
+        }
+      });
+
   module.exports=router;

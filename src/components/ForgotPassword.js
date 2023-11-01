@@ -1,6 +1,4 @@
-// ForgotPassword.js
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -16,6 +14,8 @@ const ForgotPassword = () => {
       )
       .required('New password is required'),
   });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="container mt-5">
@@ -51,11 +51,20 @@ const ForgotPassword = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="newPassword" className="form-label">New Password</label>
-              <Field
-                name="newPassword"
-                type="password"
-                className={`form-control ${errors.newPassword && touched.newPassword ? 'is-invalid' : ''}`}
-              />
+              <div className="input-group">
+                <Field
+                  name="newPassword"
+                  type={showPassword ? 'text' : 'password'}
+                  className={`form-control ${errors.newPassword && touched.newPassword ? 'is-invalid' : ''}`}
+                />
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? 'Hide' : 'Show'}
+                </button>
+              </div>
               <ErrorMessage name="newPassword" component="div" className="invalid-feedback" />
             </div>
             <button type="submit" className="btn btn-primary">Reset Password</button>
