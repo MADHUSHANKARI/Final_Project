@@ -1,11 +1,12 @@
 import Carousel from 'react-bootstrap/Carousel';
 import image1 from './images/image1.jpg';
 
+
 function Caro() {
   return (
     <Carousel>
       <Carousel.Item>
-        <image1 text="First slide" />
+      <img src={image1} alt="image1" />
       </Carousel.Item>
       <Carousel.Item>
         <image1 text="Second slide" />

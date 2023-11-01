@@ -15,8 +15,12 @@ const Admin = ({ setIsLoggedIn }) => {
     };
 
     return (
-        <div>
-            <h2>hello</h2>
+        <div className="admin-container">
+            <AdminNavbar handleLogout={handleLogout} />
+            <div className="admin-content">
+                
+                {/* Add the rest of your admin content here */}
+            </div>
         </div>
         
 
