@@ -59,7 +59,7 @@ const Login = () => {
                   name="email"
                   type="email"
                   placeholder="Email"
-                  style={{ width: '100%', padding: '0.5rem', backgroundColor: '#929692', fontSize: '18px', border: 'none' }}
+                  style={{ width: '100%', padding: '0.5rem', backgroundColor: '#66b3ff', fontSize: '18px', border: 'none' }}
                 />
                 <ErrorMessage name="email" component="div" className="error-message" />
               </div>
@@ -68,7 +68,7 @@ const Login = () => {
                   name="password"
                   type="password"
                   placeholder="Password"
-                  style={{ width: '100%', padding: '0.5rem', backgroundColor: '#929692', fontSize: '18px', border: 'none' }}
+                  style={{ width: '100%', padding: '0.5rem', backgroundColor: '#66b3ff', fontSize: '18px', border: 'none' }}
                 />
                 <ErrorMessage name="password" component="div" className="error-message" />
               </div>

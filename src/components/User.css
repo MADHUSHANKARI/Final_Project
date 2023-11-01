@@ -6,7 +6,7 @@
 
 .custom-image {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 110vh;
     border-radius: 10px;
     
   }
@@ -39,5 +39,12 @@
   .custom-button:hover {
     background-color: #c60a7e;
     cursor: pointer;
+  }
+  .date{
+    color:blue;
+    font-family: "Times New Roman", Times, serif;
+    text-decoration: underline;
+
+
   }
   

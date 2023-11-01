@@ -3,7 +3,7 @@
 
 
 .loginpage{
-  background-image: url(https://img.freepik.com/free-photo/decorated-wedding-hall-with-candles-round-tables-centerpieces_8353-10057.jpg?w=1060&t=st=1698206064~exp=1698206664~hmac=ad23c1ee90524321fc8506df2c3a01d9e4823e45df65bc387de71efe5e68b061);
+  background-image: url(https://img.freepik.com/free-photo/decorated-hall-wedding-is-ready-celebration_8353-10236.jpg?w=1060&t=st=1698647034~exp=1698647634~hmac=042c4b40363a8a60569a9b657cd7ca1ad4095f3d62c77dfbca66ad9e1b39385e);
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -21,9 +21,10 @@
   width: 400px; /* Adjust the width as needed */
   margin: auto; /* Center the form horizontally */
   margin-top: 0px; /* Adjust the top margin as needed */
-  background-color: #8d2d76;
+  background-color: white;
   background-position:left;
-  margin-bottom: 0%;  
+  margin-bottom: 0%; 
+  opacity: 0.9; 
 }
 
 
