@@ -1,6 +1,11 @@
 import React from 'react';
 import './Admin.css'
 import AdminNavbar from './AdminNavbar';
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
+import Bookings from './pages/Bookings';
+import Messages from './pages/Messages';
+import Settings from './pages/Settings';
+
 
 const Admin = ({ setIsLoggedIn }) => {
     const handleLogout = () => {
@@ -15,16 +20,25 @@ const Admin = ({ setIsLoggedIn }) => {
     };
 
     return (
-        <div className="admin-container">
-            <AdminNavbar handleLogout={handleLogout} />
-            <div className="admin-content">
-                
-                {/* Add the rest of your admin content here */}
+        
+        <div>
+            <AdminNavbar/>
+            
             </div>
-        </div>
+        // <BrowserRouter>
+            
+            
+        //     <Routes>
+        //         <Route path='/bookings' Component={Bookings}/>
+        //         <Route path='/settings' Component={Settings}/>
+        //         <Route path='/messages' Component={Messages}/>
+        //  </Routes>
+         
+        // </BrowserRouter>
+        
         
 
-    )
-};
+    );
+}
 
 export default Admin;

@@ -1,54 +1,54 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './AdminNavbar.css';
-import { FaTh, FaBars } from "react-icons/fa"
-import { NavLink } from 'react-bootstrap';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import { Sidebar } from './Sidebar';
+import { IconContext } from 'react-icons';
+import UserNavbar2 from './UserNavbar';
 
+function AdminNavbar(){
+  const [sidebar, setSidebar] = useState(false);
+  const showSidebar =() => setSidebar(!sidebar);
 
-const AdminNavbar = ({ childern }) => {
-  const[isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-
-  const menuItem = [
-    {
-      path: "/notification",
-      name: "Notification",
-      icon: <FaTh />
-    },
-    {
-      path: "/settings",
-      name: "Settings",
-      icon: <FaTh />
-    },
-    {
-      path: "/",
-      name: "Logout",
-      icon: <FaTh />
-    }
-  ]
-  return (
-    <div className='container'>
-      <div style={{width: isOpen ? "250px" : "50px"}} className='sidebar'>
-        <div className='top_section'>
-          <h1 style={{display: isOpen ? "block" : "none"}} className='logo'>Logo</h1>
-          <div style={{margin_left: isOpen ? "50px" : "0px"}} className='bars'>
-            <FaBars onClick={toggle} />
-          </div>
-        </div>
-
-        {
-          menuItem.map((item, index) => (
-            <NavLink to={item.path} key={index} className='link' activeClassName="active">
-              <div className='icon'>{item.icon}</div>
-              <div style={{display: isOpen ? "block" : "none"}} className='link_text'>{item.name}</div>
-            </NavLink>
-          ))
-        }
-
+  return(
+    <>
+    
+    <IconContext.Provider value={{color:'#fff'}}>
+    <div className='navbar'>
+      
+      <Link to='#' className='menu-bars'>
+        <FaIcons.FaBars onClick={showSidebar}/>
+      </Link>
+      <div className='logout-btn'>
+      <button className='btn'>Logout</button>
       </div>
-      <main>{childern}</main>
+      
     </div>
-  );
+    
+    <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+      
+      <ul className='nav-menu-items' onClick={showSidebar}>
+        <li className='navbar-toggle'>
+          <Link to='#' className='menu-bars'>
+            <AiIcons.AiOutlineClose />
+          </Link>
+        </li>
+        {Sidebar.map((item, index) => {
+         return(
+          <li key={index} className={item.className}>
+            <Link to={item.path}>
+              {item.icon}
+              <span>{item.title}</span>
+            </Link>
+          </li>
+         )
+        })}
+      </ul>
+    </nav>
+    </IconContext.Provider>
+    </>
+  )
 }
 
 export default AdminNavbar;
