@@ -6,7 +6,7 @@
   align-items: center;
 }
 .logout-btn{
-  background-color: #1a83ff;
+  
   padding: 2px;
   align-items: center;
   display: flex;
@@ -14,7 +14,7 @@
   
 }
 .btn{
-  background-color: #007BFF;
+  
   color: #fff;
   padding: 8px 16px;
   border: none;
@@ -22,13 +22,16 @@
   cursor: pointer;
   
 }
+.btn:hover{
+  color: #007bff;
+}
 .menu-bars{
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
 }
 .nav-menu{
-  background-color: #2b2b2b;
+  background-color: #514f4f;
   width: 250px;
   height: 100vh;
   display: flex;
