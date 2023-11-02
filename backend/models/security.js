@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// const validator = require('validator');
 
 const securitySchema = new mongoose.Schema({
     firstName: {
@@ -12,38 +13,38 @@ const securitySchema = new mongoose.Schema({
     nic: {
         type: String,
         required: [true, 'Please enter nic'],
-        unique: true
+        unique:true
+        // maxlength: [10, 'nic cannot exceed 10 characters'],
+
     },
     email: {
         type: String,
         required: [true, 'Please enter email'],
-        unique: true
+        unique:true
+
+        // validate: [validator.isEmail, 'Please enter valid email address']
     },
     password: {
         type: String,
         required: [true, 'Please enter password'],
+        // max:[6,"password should be 6 character"],
+        // maxlength: [10, 'Password cannot exceed 10 characters'],
+        // select: false
     },
+
     mobilenumber: {
         type: String,
-        required: [true, 'please enter mobilenumber'],
+        required:[true,'please enter mobilenumber'],
+        // validate:[validator.isMobilePhone,'Please enter valid phone number']
     },
+   
+    // resetPasswordToken: String,
+    // resetPasswordTokenExpire: Date,
     createdAt: {
         type: Date,
         default: Date.now
     }
-});
-
-const bookingSchema = new mongoose.Schema({
-    date: Date,
-    userEmail: String,
-});
-
-const Security = mongoose.model('security', securitySchema);
-const Booking = mongoose.model('Booking', bookingSchema);
-
-module.exports = {
-    Security,
-    Booking
-};
+})
 
 
+module.exports = mongoose.model('User', securitySchema)
