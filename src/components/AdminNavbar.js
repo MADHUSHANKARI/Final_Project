@@ -5,23 +5,27 @@ import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { IconContext } from 'react-icons';
-import UserNavbar2 from './UserNavbar';
 
 function AdminNavbar(){
   const [sidebar, setSidebar] = useState(false);
   const showSidebar =() => setSidebar(!sidebar);
 
+  const handleLogout=()=> {
+    // Perform any logout actions (e.g., clearing session data)
+  
+    // Redirect to the home page (change the URL to your home page's URL)
+    window.location.href = '/'; // Replace '/home' with the actual URL of your home page
+  }
   return(
     <>
     
     <IconContext.Provider value={{color:'#fff'}}>
     <div className='navbar'>
-      
       <Link to='#' className='menu-bars'>
         <FaIcons.FaBars onClick={showSidebar}/>
       </Link>
       <div className='logout-btn'>
-      <button className='btn'>Logout</button>
+      <button id='logout-button' className='btn' onClick={handleLogout}>Logout</button>
       </div>
       
     </div>
