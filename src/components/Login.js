@@ -37,6 +37,7 @@ const Login = () => {
         validationSchema={LoginSchema}
         onSubmit={async (values, { resetForm }) => {
           try {
+            
             const response = await axios.post('http://localhost:5001/v1/login', values);
             console.log(response.data);
             toast.success('Login successful', { autoClose: 3000 });

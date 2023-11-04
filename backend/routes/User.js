@@ -5,7 +5,7 @@ const {  decodeToken,
     hashPassword,
     validateToken,
     validPassword,} = require('../helper')
-const securitySchema = require('../models/security')
+const UserSchema = require('../models/User')
 
 const router = express.Router();
 
@@ -16,14 +16,14 @@ router.get('/',(req,res)=>{
 router.post("/register", async (req, res) => {
     try {
       console.log(req.body)
-      const secData = await securitySchema.findOne( {email:req.body.email} );
+      const secData = await UserSchema.findOne( {email:req.body.email} );
    
       if (secData) {
         return res.status(400).json("email already exists");
       }
       const hashPwd = await hashPassword(req.body.password);
       console.log(hashPassword)
-      const postData = await new securitySchema({
+      const postData = await new UserSchema({
         firstName:req.body.firstName,
         nic:req.body.nic,
         lastName:req.body.lastName,
@@ -53,7 +53,7 @@ router.post("/register", async (req, res) => {
 
   router.post("/login", async (req, res) => {
     try {
-      const validData = await securitySchema.findOne({ email: req.body.email }).select('+password');
+      const validData = await UserSchema.findOne({ email: req.body.email }).select('+password');
       if (!validData) {
         return res.status(400).json("Invalid email");
       }
@@ -86,9 +86,9 @@ router.post("/register", async (req, res) => {
   });
     router.get("/one/:email",async(req,res)=>{
       try {
-          const security = await securitySchema.findOne({email:req.params.email})
-          if(!security){
-              return res.status(200).json("no security data available")
+          const User = await UserSchema.findOne({email:req.params.email})
+          if(!User){
+              return res.status(200).json("no user data available")
       
           }else{
             return res.status(200).json({security})
@@ -99,12 +99,11 @@ router.post("/register", async (req, res) => {
       }
       })
 
-
       router.post("/resetPassword", async (req, res) => {
         try {
           const { email, newPassword } = req.body;
       
-          const user = await securitySchema.findOne({ email });
+          const user = await UserSchema.findOne({ email });
       
           if (!user) {
             return res.status(404).json({ message: 'User not found' });
@@ -120,6 +119,7 @@ router.post("/register", async (req, res) => {
           return res.status(500).json({ message: 'Internal server error' });
         }
       });
+
 
 
       router.post("/bookDate", async (req, res) => {
