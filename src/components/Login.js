@@ -37,6 +37,7 @@ const Login = () => {
         validationSchema={LoginSchema}
         onSubmit={async (values, { resetForm }) => {
           try {
+<<<<<<< HEAD
             
             const response = await axios.post('http://localhost:5001/v1/login', values);
             console.log(response.data);
@@ -44,12 +45,28 @@ const Login = () => {
             localStorage.setItem('valid', response.data);
             localStorage.setItem('email', values.email);
             navigate('/User');
+=======
+            if (values.email === 'admin12@example.com' && values.password === 'adminPassword123@') {
+              toast.success('Admin Login successful', { autoClose: 3000 });
+              localStorage.setItem('valid', 'admin');
+              localStorage.setItem('email', values.email);
+              navigate('/Admin'); // Redirect to the Admin page
+            } else {
+              const response = await axios.post('http://localhost:5001/v1/login', values);
+              console.log(response.data);
+              toast.success('User Login successful', { autoClose: 3000 });
+              localStorage.setItem('valid', response.data);
+              localStorage.setItem('email', values.email);
+              navigate('/User'); // Redirect to the User page
+            }
+>>>>>>> e6bd4ed4afcd2492c9105097a261dbeb46ff9714
           } catch (error) {
             console.error(error);
             const errorMessage = error.response?.data || 'An error occurred';
             toast.warning(errorMessage, { autoClose: 3000 });
           }
         }}
+        
       >
         {({ errors, touched }) => (
          

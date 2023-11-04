@@ -25,7 +25,7 @@ const User = ({ setIsLoggedIn }) => {
     setIsLoggedIn(false);
     // Redirect to the login page after logout
     // Replace '/login' with the actual route for your login page
-    window.location.href = '/login';
+    window.location.href = '/';
   };
 
   return (
