@@ -3,7 +3,7 @@ import './Admin.css'
 import AdminNavbar from './AdminNavbar';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 import Bookings from './pages/Bookings';
-import Messages from './Messages';
+// import Messages from './Messages';
 import Settings from './pages/Settings';
 
 
@@ -26,7 +26,7 @@ const Admin = ({ setIsLoggedIn }) => {
             <Routes>
                 <Route path='/bookings' Component={Bookings}/>
                 <Route path='/settings' Component={Settings}/>
-                <Route path='/messages' Component={Messages}/>
+                {/* <Route path='/messages' Component={Messages}/> */}
          </Routes>
          
         
