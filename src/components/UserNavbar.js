@@ -26,7 +26,7 @@ function UserNavbar2() {
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">
+                            <Link className="nav-link" to="/usernotification">
                                 Notification
                             </Link>
                         </li>
