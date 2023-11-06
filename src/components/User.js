@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './User.css';
 import UserNavbar from './UserNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+
 
 const User = ({ setIsLoggedIn }) => {
   const [bookingDate, setBookingDate] = useState(null);
@@ -28,10 +30,23 @@ const User = ({ setIsLoggedIn }) => {
     window.location.href = '/';
   };
 
+  const navigate = useNavigate();
+  const handleNotificationClick = () => {
+    // Use the navigate function to redirect to the /notification route
+    navigate('/notification');
+  };
+
   return (
+
     <div>
-      <UserNavbar handleLogout={handleLogout} />
       
+      <UserNavbar handleLogout={handleLogout} />
+<<<<<<< HEAD
+     
+        
+=======
+      
+>>>>>>> d53a1350d77e8b5a703aa776474297b1c65da2ad
       <div className="container">
         <div className="row">
           <div className="col-md-7">
@@ -47,6 +62,7 @@ const User = ({ setIsLoggedIn }) => {
             <p className="custom-text">
               Whether you're a seasoned designer or a newbie, our platform is designed to cater to your needs. Ready to unleash your imagination? Click the "Try Design" button and let your creativity flow!
             </p>
+
             <div style={{ marginBottom: "20px", }}>
               <p className='date'>Book a Date:</p>
               <DatePicker
@@ -65,10 +81,20 @@ const User = ({ setIsLoggedIn }) => {
                 <button className="btn btn-primary custom-button">Try Design</button>
               </Link>
             ) : null}
+             {/* Add a link to handle the notification click event */}
+             <div>
+              <button onClick={handleNotificationClick} className="btn btn-primary custom-button">
+                View Notification
+              </button>
+            </div>
           </div>
         </div>
       </div>
+      
+
     </div>
+
+   
   );
 };
 
