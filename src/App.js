@@ -10,6 +10,7 @@ import Layout from './components/Layout';
 import Admin from './components/Admin';
 import Messages from './components/Messages';
 import ForgotPassword from './components/ForgotPassword';
+import Settings from './components/pages/Settings';
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/messages" element={<Messages/>}/>
           <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
-
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
     </Router>

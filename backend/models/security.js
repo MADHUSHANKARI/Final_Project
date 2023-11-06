@@ -1,50 +1,33 @@
 const mongoose = require('mongoose');
-// const validator = require('validator');
+const bcrypt = require('bcryptjs');
 
 const securitySchema = new mongoose.Schema({
-    firstName: {
-        type: String,
-        required: [true, 'Please enter FirstName']
-    },
-    lastName: {
-        type: String,
-        required: [true, 'Please enter LastName']
-    },
-    nic: {
-        type: String,
-        required: [true, 'Please enter nic'],
-        unique:true
-        // maxlength: [10, 'nic cannot exceed 10 characters'],
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  // isAdmin: {
+  //   type: Boolean,
+  //   default: false,
+  // },
+});
 
-    },
-    email: {
-        type: String,
-        required: [true, 'Please enter email'],
-        unique:true
+// Pre-save hook to hash the password before saving to the database
+securitySchema.pre('save', async function (next) {
+  if (!this.isModified('password')) {
+    return next();
+  }
 
-        // validate: [validator.isEmail, 'Please enter valid email address']
-    },
-    password: {
-        type: String,
-        required: [true, 'Please enter password'],
-        // max:[6,"password should be 6 character"],
-        // maxlength: [10, 'Password cannot exceed 10 characters'],
-        // select: false
-    },
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
+});
 
-    mobilenumber: {
-        type: String,
-        required:[true,'please enter mobilenumber'],
-        // validate:[validator.isMobilePhone,'Please enter valid phone number']
-    },
-   
-    // resetPasswordToken: String,
-    // resetPasswordTokenExpire: Date,
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
-})
+module.exports = mongoose.model('Security', securitySchema);
 
-
-module.exports = mongoose.model('User', securitySchema)
+// module.exports = Security;

@@ -1,147 +1,64 @@
+const securitySchema = require('../models/security');
+const bcrypt = require('bcryptjs');
 const express = require('express');
-const bcrypt = require('bcryptjs')
-const {  decodeToken,
-    generateToken,
-    hashPassword,
-    validateToken,
-    validPassword,} = require('../helper')
-const securitySchema = require('../models/security')
-
 const router = express.Router();
 
-router.get('/',(req,res)=>{
-    res.json("jhjkdjfkd")
-})
 
-router.post("/register", async (req, res) => {
+// Function to create the admin account if it doesn't exist
+// const createAdminAccount = async () => {
+//     const adminEmail = 'divesh@gmail.com';
+//     const adminPassword = 'divesh123';
+
+//     const existingAdmin =  securitySchema.findOne({ email: adminEmail });
+
+//     if (!existingAdmin) {
+//         const hashedPassword = await bcrypt.hash(adminPassword, 10);
+
+//         const admin = new securitySchema({
+//             email: adminEmail,
+//             password: hashedPassword,
+//         });
+
+//         await admin.save();
+//     }
+// };
+
+// // Call the createAdminAccount function
+// createAdminAccount().then(() => {
+//     console.log('Admin account created or already exists.');
+// });
+
+// Route for changing the admin's email and password
+router.post('/change-password', async (req, res) => {
+    const email = req.body.Email;
+    const currentPassword = req.body.currentPassword;
+    const newPassword = req.body.newPassword
     try {
-      console.log(req.body)
-      const secData = await securitySchema.findOne( {email:req.body.email} );
-   
-      if (secData) {
-        return res.status(400).json("email already exists");
-      }
-      const hashPwd = await hashPassword(req.body.password);
-      console.log(hashPassword)
-      const postData = await new securitySchema({
-        firstName:req.body.firstName,
-        nic:req.body.nic,
-        lastName:req.body.lastName,
-        email:req.body.email,
-        // jobtype:req.body.jobtype,
-        mobilenumber:req.body.mobilenumber,
-        // Address:req.body.Address,
-        // Staffid:req.body.Staffid,
-        password: hashPwd,
-      });
-      const postUser = await postData.save();
-      if (postUser) {
-        return res.status(200).json("Registered successfully");
-      }
-    } catch (err) {
-        // console.log(err)
-        if(err.code===0){
-            return res.status(400).json([err,"duplicate key found"]);
-      }if(err.code===11000){
-        return res.status(400).json(err);
+        // Find the admin user by email and isAdmin
+        const admin = await securitySchema.findOne({ email });
 
-      }
-      return res.status(400).json(err);
-    }
-  });
-
-
-  router.post("/login", async (req, res) => {
-    try {
-      const validData = await securitySchema.findOne({ email: req.body.email }).select('+password');
-      if (!validData) {
-        return res.status(400).json("Invalid email");
-      }
-    //   console.log(validData.password)
-      const validPass = await bcrypt.compare(req.body.password, validData.password);
-
-      if (validPass) {
-        const userToken = await generateToken(validData);
-        res.header(process.env.TOKEN_KEY, userToken).json(userToken);
-      } else {
-        return res.status(400).json("Invalid password");
-      }
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-
-
-  router.get("/detail", validateToken, async (req, res) => {
-    try {
-      const uid = decodeToken(req.headers.loginToken)?._id;
-      const user = await securitySchema.findOne({ _id: uid })
-        .select("-password")
-        .exec();
-    
-      res.status(200).json({ user });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-    router.get("/one/:email",async(req,res)=>{
-      try {
-          const security = await securitySchema.findOne({email:req.params.email})
-          if(!security){
-              return res.status(200).json("no security data available")
-      
-          }else{
-            return res.status(200).json({security})
-      
-          }
-      } catch (error) {
-          return res.status(400).json(error)
-      }
-      })
-
-
-      router.post("/resetPassword", async (req, res) => {
-        try {
-          const { email, newPassword } = req.body;
-      
-          const user = await securitySchema.findOne({ email });
-      
-          if (!user) {
-            return res.status(404).json({ message: 'User not found' });
-          }
-      
-          const hashedPassword = await hashPassword(newPassword);
-          user.password = hashedPassword;
-          await user.save();
-      
-          return res.status(200).json({ message: 'Password updated successfully' });
-        } catch (error) {
-          console.error(error);
-          return res.status(500).json({ message: 'Internal server error' });
+        if (!admin) {
+            return res.status(401).json('Admin not found');
         }
-      });
+
+        // Check if the current password is correct
+        const isPasswordValid = bcrypt.compare(currentPassword, admin.password);
 
 
-      router.post("/bookDate", async (req, res) => {
-        try {
-          const { date, userEmail } = req.body; // Assuming userEmail is included in the request
-          const isDateBooked = await Booking.findOne({ date });
-      
-          if (isDateBooked) {
-            return res.status(400).json("Date already booked");
-          }
-      
-          const newBooking = new Booking({
-            date: date,
-            userEmail: userEmail, // Storing the user's email
-          });
-      
-          await newBooking.save();
-          return res.status(200).json("Date booked successfully");
-        } catch (error) {
-          console.error(error);
-          return res.status(500).json("Internal server error");
+        if (!isPasswordValid) {
+            return res.status(401).json('Incorrect current password');
         }
-      });
 
-  module.exports=router;
+        // Update the password with the new password
+        const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+        admin.password = hashedNewPassword;
+         admin.save();
+
+        return res.status(200).json('PasswordChanged');
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json('Error occurred while changing the password');
+    }
+});
+
+module.exports = router;
