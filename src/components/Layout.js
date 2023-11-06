@@ -4,7 +4,13 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import companyLogo from './images/company-logo.png'
+import Chair2 from './images/Chair2.jpeg';
+import Chair3 from './images/Chair3.jpeg';
+import Chair4 from './images/Chair4.jpeg';
+import Chair5 from './images/Chair5.jpeg';
+import Chair6 from './images/Chair6.jpeg';
+import './Layout.css';
+
 
 
 function TabPanel(props) {
@@ -19,7 +25,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p:3 }}>
+        <Box sx={{ p:5,height:700,width:200,margin:0}}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -48,45 +54,61 @@ export default function VerticalTabs() {
   };
 
   return (
-    <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 800 }}
-    >
-      <Tabs
-        orientation="vertical"
-        variant="scrollable"
-        value={value}
-        onChange={handleChange}
-        aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: 'divider' }}
+    <div className='mmmainBox'> 
+      <div>
+        <h1>TABLE WIZARD</h1>
+      <Box className='ssubbox'
       >
-        <Tab label="Item One" {...a11yProps(0)} />
-        <Tab label="Item Two" {...a11yProps(1)} />
-        <Tab label="Item Three" {...a11yProps(2)} />
-        <Tab label="Item Four" {...a11yProps(3)} />
-      
-      </Tabs>
-      <TabPanel value={value} index={0}>
-        Item One
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
-      <TabPanel value={value} index={3}
-      >
-      <img src={companyLogo} alt="Company Log" 
-      align-item = {{}}
-      width={500} height={400} 
-      style={{ borderRadius: 16 }}
-      left={50}
-      />
-      </TabPanel>
-      </Box>
+        
+        <Tabs className='tab'
+          orientation="vertical"
+          variant="scrollable"
+          value={value}
+          onChange={handleChange}
+          
+          aria-label="Vertical tabs example"
+          
+          sx={{ borderRight: 5, borderColor: 'divider', margin:'15px' }}
+        >
+          <Tab label="Table with 2 chair"{...a11yProps(0)}/>
+          <Tab label="Table with 3 chair"{...a11yProps(1)}/>
+          <Tab label="Table with 4 chair"{...a11yProps(2)}/>
+          <Tab label="Table with 5 chair"{...a11yProps(3)}/>
+          <Tab label="Table with 6 chair"{...a11yProps(4)}/>
+        
+        </Tabs>
+        <TabPanel value={value} index={0}>
+          <img className='Tabpanel'src={Chair2} alt="img"/> 
+          
+        </TabPanel>
+        <TabPanel   value={value} index={1}>
+          <img className='Tabpanel'src={Chair3} alt="img" 
+        />
+        </TabPanel>
+        <TabPanel  value={value} index={2}>
+          <img className='Tabpanel' src={Chair4} alt="img" 
+          />
+        </TabPanel>
+        <TabPanel  value={value} index={3}>
+          <img className='Tabpanel' src={Chair5} alt="img" 
+          />
+        </TabPanel>
+        <TabPanel  value={value} index={4}
+        >
+          <img className='Tabpanel' src={Chair6} alt="img" 
+          />
+          
+        </TabPanel>
+  
+        <button className='button'
+        > confirm </button>
+        </Box>
+      </div>
 
+    </div>
 )
+
+
 }
 
 
-    
