@@ -9,6 +9,7 @@ import User from './components/User';
 import Layout from './components/Layout';
 import Admin from './components/Admin';
 import ForgotPassword from './components/ForgotPassword';
+import Settings from './components/pages/Settings';
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
           <Route path="/layout" element={<Layout/>}/>
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
-
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
     </Router>
