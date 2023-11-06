@@ -67,18 +67,14 @@ const Admin = ({ setIsLoggedIn }) => {
         
         <div>
             <AdminNavbar/>
-            
-            </div>
-        // <BrowserRouter>
-            
-            
-        //     <Routes>
-        //         <Route path='/bookings' Component={Bookings}/>
-        //         <Route path='/settings' Component={Settings}/>
-        //         <Route path='/messages' Component={Messages}/>
-        //  </Routes>
+            <Routes>
+                <Route path='/bookings' Component={Bookings}/>
+                <Route path='/settings' Component={Settings}/>
+                <Route path='/messages' Component={Messages}/>
+         </Routes>
          
-        // </BrowserRouter>
+        
+        </div>
         
         
 

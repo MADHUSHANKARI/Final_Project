@@ -5,6 +5,7 @@ import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { IconContext } from 'react-icons';
+import companyLogo from './images/company-logo.png';
 
 function AdminNavbar(){
   const [sidebar, setSidebar] = useState(false);
@@ -24,6 +25,9 @@ function AdminNavbar(){
       <Link to='#' className='menu-bars'>
         <FaIcons.FaBars onClick={showSidebar}/>
       </Link>
+      <Link className="navbar-brand" to="/">
+          <img src={companyLogo} alt="Company Logo" />
+        </Link>
       <div className='logout-btn'>
       <button id='logout-button' className='btn' onClick={handleLogout}>Logout</button>
       </div>

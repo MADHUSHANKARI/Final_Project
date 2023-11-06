@@ -41,8 +41,12 @@ const User = ({ setIsLoggedIn }) => {
     <div>
       
       <UserNavbar handleLogout={handleLogout} />
+<<<<<<< HEAD
      
         
+=======
+      
+>>>>>>> d53a1350d77e8b5a703aa776474297b1c65da2ad
       <div className="container">
         <div className="row">
           <div className="col-md-7">
