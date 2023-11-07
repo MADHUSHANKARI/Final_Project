@@ -2,17 +2,16 @@
   background-color: #2b2b2b;
   height: 80px;
   display: flex;
-  justify-content: space-between;
+ 
   align-items: center;
 }
 .logout-btn{
-  
   padding: 2px;
   align-items: center;
   display: flex;
   margin-right: 3px;
-  
 }
+
 .btn{
   
   color: #fff;
@@ -20,16 +19,18 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  
 }
+
 .btn:hover{
   color: #007bff;
 }
+
 .menu-bars{
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
 }
+
 .nav-menu{
   background-color: #514f4f;
   width: 250px;
@@ -40,8 +41,8 @@
   top: 0;
   left: -100%;
   transition: 850ms;
-
 }
+
 .nav-menu.active{
   left: 0;
   transition: 350ms;

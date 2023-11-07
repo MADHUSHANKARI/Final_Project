@@ -3,7 +3,7 @@ const app  = express();
 const DbConnection = require('./database');
 const cors= require('cors')
 const mongoose = require('mongoose');
-// const security = require('./routes/security')
+const security = require('./routes/security')
 
 
 require('dotenv').config()
@@ -13,6 +13,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/v1',require('./routes/User'))
+app.use('/v2', security)
 
 
 

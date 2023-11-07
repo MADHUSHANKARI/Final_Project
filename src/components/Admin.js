@@ -1,9 +1,10 @@
+// ** Madhu** //
 import React from 'react';
 import './Admin.css'
 import AdminNavbar from './AdminNavbar';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 import Bookings from './pages/Bookings';
-import Messages from './pages/Messages';
+import Messages from './Messages';
 import Settings from './pages/Settings';
 
 
@@ -23,18 +24,14 @@ const Admin = ({ setIsLoggedIn }) => {
         
         <div>
             <AdminNavbar/>
-            
-            </div>
-        // <BrowserRouter>
-            
-            
-        //     <Routes>
-        //         <Route path='/bookings' Component={Bookings}/>
-        //         <Route path='/settings' Component={Settings}/>
-        //         <Route path='/messages' Component={Messages}/>
-        //  </Routes>
+            <Routes>
+                <Route path='/bookings' Component={Bookings}/>
+                <Route path='/settings' Component={Settings}/>
+                {/* <Route path='/messages' Component={Messages}/> */}
+         </Routes>
          
-        // </BrowserRouter>
+        
+        </div>
         
         
 

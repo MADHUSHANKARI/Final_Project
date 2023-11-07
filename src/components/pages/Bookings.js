@@ -1,8 +1,15 @@
+// ** Thuva ** //
 import React from 'react'
+import AdminNavbar from '../AdminNavbar'
 
 function Bookings() {
   return (
-    <div>Bookings</div>
+    <div>
+<AdminNavbar/>
+<h2>Bookings</h2>
+    
+    
+    </div>
   )
 }
 

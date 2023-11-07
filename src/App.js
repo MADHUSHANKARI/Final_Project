@@ -8,8 +8,15 @@ import Login from './components/Login';
 import User from './components/User';
 import Layout from './components/Layout';
 import Admin from './components/Admin';
+import Messages from './components/Messages';
 import ForgotPassword from './components/ForgotPassword';
+<<<<<<< HEAD
 import Contact from './components/Contact';
+=======
+import Settings from './components/pages/Settings';
+import Bookings from './components/pages/Bookings';
+
+>>>>>>> 229e2ed47e4d9367909af10e03c2f51cc6178dbd
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,8 +34,10 @@ function App() {
           <Route path="/user" element={<User/>}/>
           <Route path="/layout" element={<Layout/>}/>
           <Route path="/admin" element={<Admin/>}/>
+          <Route path="/messages" element={<Messages/>}/>
           <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
-
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/bookings" element={<Bookings />} />
         </Routes>
       </div>
     </Router>
@@ -36,3 +45,4 @@ function App() {
 }
 
 export default App;
+
