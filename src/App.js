@@ -9,7 +9,7 @@ import User from './components/User';
 import Layout from './components/Layout';
 import Admin from './components/Admin';
 import ForgotPassword from './components/ForgotPassword';
-
+import Contact from './components/Contact';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,6 +22,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/user" element={<User/>}/>
           <Route path="/layout" element={<Layout/>}/>

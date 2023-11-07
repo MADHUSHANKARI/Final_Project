@@ -1,13 +1,15 @@
 import React from 'react';
-import './Footer.css'
+import './Footer.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function Footer() {
   return (
     <footer>
       <div className="mt-5 pt-5 pb-5 footer">
-        <div className="container">
+        <div className="container9">
           <div className="row">
             <div className="col-lg-5 col-xs-12">
-              <h2>Company name</h2>
+              <h4>Company name</h4>
               <p className="pr-5 text-white-50">
                 Some updated information about your company.
               </p>
@@ -47,6 +49,11 @@ function Footer() {
                     <i className="fas fa-info"></i> About
                   </a>
                 </li>
+                <li>
+                  <a href="#">
+                    <i className="fas fa-contact"></i> contact
+                  </a>
+                </li>
               </ul>
             </div>
             <div className="col-lg-4 col-xs-12 location">
@@ -64,7 +71,7 @@ function Footer() {
           </div>
           <div className="row mt-5">
             <div className="col copyright text-center">
-              <p>
+              <p className='right'>
                 <small className="text-white-50">
                   All Rights Reserved &copy; Company Name 2023
                 </small>
@@ -72,6 +79,7 @@ function Footer() {
             </div>
           </div>
         </div>
+        
       </div>
     </footer>
   );
