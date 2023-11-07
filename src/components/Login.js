@@ -39,6 +39,7 @@ const Login = () => {
                 toast.success('User Login successful', { autoClose: 3000 });
                 localStorage.setItem('valid', response.data);
                 localStorage.setItem('email', values.email);
+                window.alert(localStorage.getItem("email"));
                 navigate('/User'); // Redirect to the User page
             }
         } catch (error) {

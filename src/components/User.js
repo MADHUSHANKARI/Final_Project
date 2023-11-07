@@ -79,7 +79,10 @@ const User = ({ setIsLoggedIn }) => {
                 <button className="btn btn-primary custom-button">Try Design</button>
               </Link>
             ) : null}
+<<<<<<< HEAD
+=======
              {/* Add a link to handle the notification click event */}
+>>>>>>> f04299e6f298050e91fcac88c7b44d75b500aa02
              
           </div>
         </div>
