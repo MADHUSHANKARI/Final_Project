@@ -1,6 +1,9 @@
+// ** Madhu ** //
+
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import AdminNavbar from '../AdminNavbar';
 
 function Settings() {
   const [activeMainTab, setActiveMainTab] = useState('');
@@ -40,7 +43,11 @@ function Settings() {
   };
 
   return (
+    <div>
+      <AdminNavbar/>
+    
     <div className="container mt-5">
+      
       <h2>Settings</h2>
       <ul className="nav nav-tabs" id="settingsTabs">
         <li className="nav-item">
@@ -157,6 +164,7 @@ function Settings() {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 }

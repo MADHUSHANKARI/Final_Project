@@ -1,3 +1,6 @@
+// **content: Janoja **CSS:Dishoban ** //
+   
+
 import React from 'react';
 import './About.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -87,33 +90,5 @@ const About = () => {
   );
 }
 export default About;
-// import React from 'react';
 
-// import './About.css';
-// import Navbar from './Navbar';
-// const About= () => {
-//   return (
-//     <div>
-//       <Navbar/>
-//     <div className="about">
-//       <h2>About Us</h2>
-//       <p>We are a company that does amazing things.</p>
-//     </div>
-//     </div>
-//   );
-// }
-{/* <div className='align1'>
-        <h4>Promoting Transparency & Honesty</h4>
-        <p2>We deliver unrivaled transparency in event costs. Enjoy full visibility into all pricing, enabling you to reach decisions that make the most of your budget.</p2>
-        <h4>Custom Solutions</h4>
-        <p2> We understand that every event is unique. That's why we tailor our 3D simulations to suit your specific needs, whether it's a corporate conference, product launch, trade show, or virtual training.</p2>
-        <img src='./image/images (1).jpg' className='customer' alt="logo" /> */}
-
-
-// export default About;
-{/* <div className='align'>
-        <h4>Eliminating Stress With Passion & Determination</h4>
-        <p2> We work together to accomplish all goals and get past every challenge. Throughout the planning process, you'll feel confident and at comfortable.We partner with you to overcome every obstacle and achieve every objective. You will experience calm and confidence throughout the planning process.</p2>
-        <img src='./image/eliminateimage.jpg' className='passion' alt="image" />
-      </div> */}
 

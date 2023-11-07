@@ -1,5 +1,9 @@
+// ** Janoja ** //
+
 import React, { useState } from 'react';
 import { GrClose } from 'react-icons/gr';
+import AdminNavbar from './AdminNavbar';
+
 
 const NotificationPage = () => {
     const [notifications, setNotifications] = useState([
@@ -22,6 +26,9 @@ const NotificationPage = () => {
 
     return (
         <div>
+            <div>
+                <AdminNavbar/>
+            </div>
             {notifications.map((notification) => (
                 <div
                     key={notification.id}
