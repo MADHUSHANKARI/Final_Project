@@ -1,3 +1,5 @@
+// ** Thuva ** //
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
@@ -23,6 +25,26 @@ const Login = () => {
             .required('Password is required'),
     });
 
+<<<<<<< HEAD
+  return (
+    <div>
+      <Navbar/>
+    <div className='loginpage'>
+
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        validationSchema={LoginSchema}
+        onSubmit={async (values, { resetForm }) => {
+          try {
+            if (values.email === 'admin12@example.com' && values.password === 'adminPassword123@') {
+              toast.success('Admin Login successful', { autoClose: 3000 });
+              localStorage.setItem('valid', 'admin');
+              localStorage.setItem('email', values.email);
+              navigate('/Admin'); // Redirect to the Admin page
+=======
     const handleAdminLogin = async (values) => {
         try {
             if (values.email === 'admin@example.com' && values.password === 'adminPassword123@') {
@@ -30,6 +52,7 @@ const Login = () => {
                 localStorage.setItem('valid', 'admin');
                 localStorage.setItem('email', values.email);
                 navigate('/Admin'); // Redirect to the Admin page
+>>>>>>> 229e2ed47e4d9367909af10e03c2f51cc6178dbd
             } else {
                 // Handle user login here
                 const response = await axios.post('http://localhost:5001/v1/login', values);
@@ -40,7 +63,11 @@ const Login = () => {
                 window.alert(localStorage.getItem("email"));
                 navigate('/User'); // Redirect to the User page
             }
+<<<<<<< HEAD
+          } catch (error) {
+=======
         } catch (error) {
+>>>>>>> 229e2ed47e4d9367909af10e03c2f51cc6178dbd
             console.error(error);
             const errorMessage = error.response?.data || 'An error occurred';
             toast.warning(errorMessage, { autoClose: 3000 });

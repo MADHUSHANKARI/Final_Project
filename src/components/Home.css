@@ -1,7 +1,9 @@
 /* Home.css */
 .home {
     text-align: center;
-    padding: 20px;
+    padding:0;
+    margin: 0;
+    width: 100%;
   }
   
   .home h1 {

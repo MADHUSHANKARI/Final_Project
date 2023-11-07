@@ -16,7 +16,7 @@ const Bookings = () => {
   //     })
   //     .catch(error => {
   //       console.error('Error fetching bookings:', error);
-  //       setError('An error occurred while fetching bookings');
+  //       setError('An error occurred while fetching boozkings');
   //     });
   // }, []);
 

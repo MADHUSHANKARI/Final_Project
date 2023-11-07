@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './User.css';
@@ -7,7 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-
+// ** Thuva ** //
 const User = ({ setIsLoggedIn }) => {
   const [bookingDate, setBookingDate] = useState(null);
   const bookedDates = [new Date(2023, 10, 10), new Date(2023, 10, 15)]; // Sample booked dates
@@ -19,6 +21,7 @@ const User = ({ setIsLoggedIn }) => {
     setBookingDate(date);
   };
 
+  //** Madhu **//
   const handleLogout = () => {
     // Implement your logout logic here
     localStorage.removeItem('valid');
@@ -76,6 +79,10 @@ const User = ({ setIsLoggedIn }) => {
                 <button className="btn btn-primary custom-button">Try Design</button>
               </Link>
             ) : null}
+<<<<<<< HEAD
+=======
+             {/* Add a link to handle the notification click event */}
+>>>>>>> f04299e6f298050e91fcac88c7b44d75b500aa02
              
           </div>
         </div>

@@ -1,3 +1,5 @@
+// ** Thuva ** //
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
@@ -33,6 +35,11 @@ function Navbar() {
             <li className="nav-item">
               <Link className="nav-link" to="/about">
                 About
+              </Link>
+              </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Contact">
+                Contact-Us
               </Link>
             </li>
             <li className="nav-item">
