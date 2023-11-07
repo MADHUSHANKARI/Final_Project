@@ -4,7 +4,7 @@ import './Admin.css'
 import AdminNavbar from './AdminNavbar';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 import Bookings from './pages/Bookings';
-import Messages from './Messages';
+
 import Settings from './pages/Settings';
 
 

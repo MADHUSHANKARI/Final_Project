@@ -10,13 +10,10 @@ import Layout from './components/Layout';
 import Admin from './components/Admin';
 import Messages from './components/Messages';
 import ForgotPassword from './components/ForgotPassword';
-<<<<<<< HEAD
-import Contact from './components/Contact';
-=======
 import Settings from './components/pages/Settings';
 import Bookings from './components/pages/Bookings';
+import Contact from './components/Contact';
 
->>>>>>> 229e2ed47e4d9367909af10e03c2f51cc6178dbd
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

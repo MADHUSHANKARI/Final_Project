@@ -75,7 +75,7 @@ router.post("/register", async (req, res) => {
   router.get("/detail", validateToken, async (req, res) => {
     try {
       const uid = decodeToken(req.headers.loginToken)?._id;
-      const user = await securitySchema.findOne({ _id: uid })
+      const user = await UserSchema.findOne({ _id: uid })
         .select("-password")
         .exec();
     

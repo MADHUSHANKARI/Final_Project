@@ -30,4 +30,4 @@ securitySchema.pre('save', async function (next) {
 
 module.exports = mongoose.model('Security', securitySchema);
 
-// module.exports = Security;
+

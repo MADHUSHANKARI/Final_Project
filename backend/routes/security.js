@@ -4,30 +4,6 @@ const express = require('express');
 const router = express.Router();
 
 
-// Function to create the admin account if it doesn't exist
-// const createAdminAccount = async () => {
-//     const adminEmail = 'divesh@gmail.com';
-//     const adminPassword = 'divesh123';
-
-//     const existingAdmin =  securitySchema.findOne({ email: adminEmail });
-
-//     if (!existingAdmin) {
-//         const hashedPassword = await bcrypt.hash(adminPassword, 10);
-
-//         const admin = new securitySchema({
-//             email: adminEmail,
-//             password: hashedPassword,
-//         });
-
-//         await admin.save();
-//     }
-// };
-
-// // Call the createAdminAccount function
-// createAdminAccount().then(() => {
-//     console.log('Admin account created or already exists.');
-// });
-
 // Route for changing the admin's email and password
 router.post('/change-password', async (req, res) => {
     const email = req.body.Email;
