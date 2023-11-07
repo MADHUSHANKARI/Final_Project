@@ -41,12 +41,7 @@ const User = ({ setIsLoggedIn }) => {
     <div>
       
       <UserNavbar handleLogout={handleLogout} />
-<<<<<<< HEAD
-     
-        
-=======
       
->>>>>>> d53a1350d77e8b5a703aa776474297b1c65da2ad
       <div className="container">
         <div className="row">
           <div className="col-md-7">
@@ -81,12 +76,7 @@ const User = ({ setIsLoggedIn }) => {
                 <button className="btn btn-primary custom-button">Try Design</button>
               </Link>
             ) : null}
-             {/* Add a link to handle the notification click event */}
-             <div>
-              <button onClick={handleNotificationClick} className="btn btn-primary custom-button">
-                View Notification
-              </button>
-            </div>
+             
           </div>
         </div>
       </div>

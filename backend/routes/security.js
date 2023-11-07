@@ -60,5 +60,25 @@ router.post('/change-password', async (req, res) => {
         return res.status(500).json('Error occurred while changing the password');
     }
 });
+router.post("/resetPassword", async (req, res) => {
+    try {
+      const { email, newPassword } = req.body;
+  
+      const user = await UserSchema.findOne({ email });
+  
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      const hashedPassword = await hashPassword(newPassword);
+      user.password = hashedPassword;
+      await user.save();
+  
+      return res.status(200).json({ message: 'Password updated successfully' });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: 'Internal server error' });
+    }
+  });
 
 module.exports = router;

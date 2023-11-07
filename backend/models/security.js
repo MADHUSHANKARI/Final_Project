@@ -28,6 +28,8 @@ securitySchema.pre('save', async function (next) {
   next();
 });
 
+
+
 module.exports = mongoose.model('Security', securitySchema);
 
 // module.exports = Security;
