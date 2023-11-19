@@ -1,4 +1,5 @@
 const express = require('express');
+const router = express.Router();
 const bcrypt = require('bcryptjs')
 const {  decodeToken,
     generateToken,
@@ -7,7 +8,6 @@ const {  decodeToken,
     validPassword,} = require('../helper')
 const UserSchema = require('../models/User')
 
-const router = express.Router();
 
 router.get('/',(req,res)=>{
     res.json("jhjkdjfkd")

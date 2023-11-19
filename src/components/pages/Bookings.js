@@ -3,6 +3,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import axios from 'axios';
 import './Booking.css'; // Import your CSS file for the Bookings component
+import AdminNavbar from '../AdminNavbar';
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -21,8 +22,10 @@ const Bookings = () => {
   // }, []);
 
   return (
+    <div>
+      <AdminNavbar/>
     <div className="bookings-container">
-      <h2>Booking Calendar</h2>
+      
       {error ? (
         <div className="error-message">{error}</div>
       ) : (
@@ -37,6 +40,7 @@ const Bookings = () => {
           />
         </div>
       )}
+    </div>
     </div>
   );
 };

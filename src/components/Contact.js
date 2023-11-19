@@ -1,8 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import "./Contact.css"
 import Navbar from './Navbar';
 
 function Contact() {
+    const [contactInfo, setContactInfo] = useState({
+        phone: '',
+        email: '',
+    });
+
+    useEffect(() => {
+        // Make an API call to fetch contact information from your backend
+        axios.get('http://localhost:5001/v1/update-contact-details')
+            .then(response => {
+                // Assuming the response is an object with phone and email properties
+                const { phone, email } = response.data;
+
+                // Update the state with the retrieved values
+                setContactInfo({
+                    phone: phone,
+                    email: email,
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching contact information:', error);
+            });
+    }, []);
+
     return (
         <div>
             <Navbar/>
@@ -18,8 +42,8 @@ function Contact() {
 
                 <div className="contact-info">
                     <h2>Contact Information:</h2>
-                    <p className='paragarph'>Phone: (+12)-33-67-8440</p>
-                    <p className='paragarph'>Email: info.colorlib@gmail.com</p>
+                    <p className='paragarph'id="phonenumber">Phone: {contactInfo.phone}</p>
+                    <p className='paragarph' id="contactemail">Email: {contactInfo.email}</p>
                 </div>
 
             </div>

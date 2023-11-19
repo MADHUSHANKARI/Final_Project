@@ -33,6 +33,11 @@ function UserNavbar2() {
                             </Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-link" to="/usermessage">
+                                Messages
+                            </Link>
+                        </li>
+                        <li className="nav-item">
                             <button className="nav-link" onClick={() => {
                                 localStorage.removeItem('valid');
                                 localStorage.removeItem('email');

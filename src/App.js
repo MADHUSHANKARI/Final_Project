@@ -12,14 +12,10 @@ import Messages from './components/Messages';
 import ForgotPassword from './components/ForgotPassword';
 import Settings from './components/pages/Settings';
 import Bookings from './components/pages/Bookings';
-<<<<<<< HEAD
-import Contact from './components/Contact';
-=======
-<<<<<<< HEAD
 
-=======
->>>>>>> f04299e6f298050e91fcac88c7b44d75b500aa02
->>>>>>> cdab3b22caa9e6f1755f8527b24a2a40fab5c857
+import Contact from './components/Contact';
+
+
 
 
 function App() {
@@ -41,12 +37,13 @@ function App() {
           <Route path="/messages" element={<Messages/>}/>
           <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
           <Route path="/settings" element={<Settings />} />
-<<<<<<< HEAD
+
           <Route path="/Bookings" element={<Bookings />} />
 
-=======
+
           <Route path="/bookings" element={<Bookings />} />
->>>>>>> f04299e6f298050e91fcac88c7b44d75b500aa02
+
+
         </Routes>
       </div>
     </Router>
