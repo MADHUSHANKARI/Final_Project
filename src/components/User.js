@@ -78,7 +78,7 @@ const User = ({ setIsLoggedIn }) => {
               />
             </div>
             {bookingDate ? (
-              <Link to="/layout" state={{}}>
+              <Link to="/DragDrop" state={{}}>
                 <button className="btn btn-primary custom-button">Try Design</button>
               </Link>
             ) : null}

@@ -13,17 +13,26 @@ import ForgotPassword from './components/ForgotPassword';
 import Settings from './components/pages/Settings';
 import Bookings from './components/pages/Bookings';
 
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import DragDrop from "./components/DragDrop";
+import './App.css'
+
+
 import Contact from './components/Contact';
 
 
 
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] =React.useState(false);
 
   return (
     <Router>
-      <div className="App">
+      <DndProvider backend={HTML5Backend}>
+
+     
+       <div className="App">
          
         <Routes>
           <Route path="/" element={<Home />} />
@@ -43,9 +52,11 @@ function App() {
 
           <Route path="/bookings" element={<Bookings />} />
 
+          <Route path="/DragDrop" element={<DragDrop />} />
 
         </Routes>
       </div>
+      </DndProvider>
     </Router>
   );
 }

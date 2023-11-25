@@ -1,12 +1,17 @@
-// contactDetailsSchema.js
 
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const contactDetailsSchema = new mongoose.Schema({
-  newEmail: { type: String, required: true },
-  newPhoneNumber: { type: String, required: true },
-});
+const Schema = mongoose.Schema
 
-const ContactDetails = mongoose.model('ContactDetails', contactDetailsSchema);
+const contactSchema = new Schema({
+    newEmail: { 
+        type: String, 
+        required: true 
+    },
+    newPhoneNumber: { 
+        type: String, 
+        required: true 
+    }
+})
 
-module.exports = ContactDetails;
+module.exports = mongoose.model('Contact',contactSchema)
