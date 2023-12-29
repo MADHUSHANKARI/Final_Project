@@ -6,11 +6,11 @@ import Picture from "./PictureList";
 import { useDrop } from "react-dnd";
 import Draggable from "react-draggable";
 import { FaDeleteLeft } from "react-icons/fa6";
-import TwoChair from '../images/two.png';
-import ThreeChair from '../images/three.png';
-import fourchair from '../images/four.png'
-import fivechair from '../images/five.png'
-import sixchair from '../images/six.png'
+import TwoChair from '../images/Chair2.png';
+import ThreeChair from '../images/Chair3.png';
+import fourchair from '../images/Chair4.png'
+import fivechair from '../images/Chair5.png'
+import sixchair from '../images/Chair6.png'
 import hall from '../images/hall.png'
 import UserNavbar2 from "../UserNavbar";
 import "../../App.css"

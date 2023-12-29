@@ -6,11 +6,11 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Chair2 from './images/Chair2.jpeg';
-import Chair3 from './images/Chair3.jpeg';
-import Chair4 from './images/Chair4.jpeg';
-import Chair5 from './images/Chair5.jpeg';
-import Chair6 from './images/Chair6.jpeg';
+import Chair2 from './images/Chair2.png';
+import Chair3 from './images/Chair3.png';
+import Chair4 from './images/Chair4.png';
+import Chair5 from './images/Chair5.png';
+import Chair6 from './images/Chair6.png';
 import './Layout.css';
 
 
