@@ -13,15 +13,24 @@ import axios from 'axios';
 // ** Thuva ** //
 const User = ({ setIsLoggedIn }) => {
   const [bookingDate, setBookingDate] = useState(null);
+  const [available,setAvailable] = useState(true)
   const bookedDates = [new Date(2023, 10, 10), new Date(2023, 10, 15)]; // Sample booked dates
-  
+  console.log(localStorage.getItem('token'))
+ const BookDate =()=>{
+ }
 
-
-  const handleDateSelect = (date) => {
+  const handleDateSelect =async (date) => {
     // Logic to check if the date is available for booking
     // If available, set the booking date
     // Otherwise, show a message indicating that the date is not available
     setBookingDate(date);
+    console.log(date)
+    const response =await axios.post('http://localhost:5001/v1/bookDate',{date})
+    console.log(response)
+    if (response.status===200){
+      setAvailable(false)
+
+    }
   };
 
   //** Madhu **//
@@ -35,6 +44,8 @@ const User = ({ setIsLoggedIn }) => {
     // Replace '/login' with the actual route for your login page
     window.location.href = '/';
   };
+
+
 
   const navigate = useNavigate();
   const handleNotificationClick = () => {
@@ -77,9 +88,16 @@ const User = ({ setIsLoggedIn }) => {
                 dateFormat="MM/dd/yyyy"
               />
             </div>
-            {bookingDate ? (
-              <Link to="/DragDrop" state={{}}>
-                <button className="btn btn-primary custom-button">Try Design</button>
+            <div>
+            {
+              
+            }
+              <p></p>
+            </div>
+
+            {bookingDate && available===false ? (
+              <Link to="/layout" state={{}}>
+                <button className="btn btn-primary custom-button"  onClick={BookDate} >Try Design</button>
               </Link>
             ) : null}
              {/* Add a link to handle the notification click event */}

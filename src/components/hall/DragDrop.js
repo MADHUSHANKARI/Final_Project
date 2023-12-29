@@ -2,38 +2,40 @@
 /* eslint-disable no-unused-vars */
 
 import React, { useState, useRef, useEffect } from "react";
-import Picture from "./Picture";
+import Picture from "./PictureList";
 import { useDrop } from "react-dnd";
 import Draggable from "react-draggable";
 import { FaDeleteLeft } from "react-icons/fa6";
-import Chair2 from './assests/Chair2.png';
-import Chair3 from './assests/Chair3.png';
-import Chair4 from './assests/Chair4.png'
-import Chair5 from './assests/Chair5.png'
-import Chair6 from './assests/Chair6.png'
-import hall from './assests/hall.png'
-import "../App.css";
+import TwoChair from '../images/two.png';
+import ThreeChair from '../images/three.png';
+import fourchair from '../images/four.png'
+import fivechair from '../images/five.png'
+import sixchair from '../images/six.png'
+import hall from '../images/hall.png'
+import UserNavbar2 from "../UserNavbar";
+import "../../App.css"
+import axios from "axios";
 
 const PictureList = [
   {
     id: 1,
-    url: Chair2,
+    url: TwoChair,
   },
   {
     id: 2,
-    url: Chair3
+    url: ThreeChair
   },
   {
     id: 3,
-    url: Chair4
+    url: fourchair
   },
   {
     id: 4,
-    url: Chair5
+    url: fivechair
   },
   {
     id: 5,
-    url: Chair6,
+    url: sixchair,
   },
 ];
 
@@ -41,7 +43,8 @@ function DragDrop() {
   const [board, setBoard] = useState([]);
   const canvasRef = useRef(null);
   const [positions, setPositions] = useState({});
-
+  const user= localStorage.getItem('email');
+  console.log(user) 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "image",
     drop: (item) => addImageToBoard(item.id),
@@ -83,7 +86,7 @@ function DragDrop() {
         const { x, y } = positions[index] || { x: 0, y: 0 };
 
         // You can customize the position and size of the drawn images
-        context.drawImage(img, x, y, 10, 10);
+        context.drawImage(img, x, y, 50, 50);
       });
     }
 
@@ -93,9 +96,17 @@ function DragDrop() {
     const dataUrl = canvas.toDataURL(); // Get the data URL of the canvas
     const link = document.createElement("a");
     link.href = dataUrl;
-    link.download = "merged_image.png"; // You can customize the filename
+    const imageName = `merged_image.png`; // Customize the filename
+    link.download = imageName; // You can customize the filename
     link.click();
+    uploadImage(dataUrl,imageName)
   };
+const uploadImage= async(dataUrl,imageName)=>{
+  console.log(dataUrl)
+  const response = await axios.post('http://localhost:5001/v1/saveDate',{image:dataUrl,imageName:imageName,user:user})
+  console.log(response);
+}
+
   const handleDrag = (index, e, ui) => {
     setPositions((prevPositions) => ({
       ...prevPositions,
@@ -115,14 +126,20 @@ function DragDrop() {
   };
 
   return (
-    <div className="container">
+    
+    <div >
+        <UserNavbar2/>
+<div className="container">
+
+
+
       <div className="Pictures">
         {PictureList.map((picture) => {
           return <Picture url={picture.url} id={picture.id} />;
         })}
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center' ,  }}>
+      <div style={{ display: 'flex',flexDirection:'row',alignItems:'center', justifyContent:'center' }}>
 
 
         <div className="Board" ref={drop} >
@@ -133,7 +150,7 @@ function DragDrop() {
 
                 <div style={{ display: 'flex', position: 'absolute' }}>
 
-                  <img src={picture.url} style={{ width: '100px', height: '100px', margin: '2px' }} />
+                  <img src={picture.url} style={{ width: '50px', height: '50px', margin: '2px' }} />
                   <div>
                     <FaDeleteLeft onClick={() => DeleteImage(index)} size={24} color="black" />
                   </div>
@@ -144,12 +161,13 @@ function DragDrop() {
         </div>
 
         <div style={{ width: '50%' }}>
-          <canvas ref={canvasRef} height={500} width={'748px'} className="ResultCanvas" />
+          <canvas ref={canvasRef} height={445.5} width={'584px'} className="ResultCanvas" />
         </div>
       </div>
-      <div style={{ textAlign: 'center', }}>
-        <button onClick={downloadImage} >Download Your Design</button>
+      <div style={{ marginTop:'10px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center' }}>
+        <p onClick={downloadImage} className="downloadButton" >Download Design</p>
       </div>
+    </div>
     </div>
   );
 }

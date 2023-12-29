@@ -10,9 +10,12 @@ import image5 from './images/image5.jpg';
 
 function Caro() {
   return (
-    <Carousel>
+   
+
+   
+    <Carousel >
       <Carousel.Item>
-      <img src={image1} alt="image1" class="img-fluid"  />
+      <img src={image1} alt="image1" class="img-fluid"   />
       </Carousel.Item>
       <Carousel.Item>
       <img src={image2} alt="image2" class="img-fluid"  />  

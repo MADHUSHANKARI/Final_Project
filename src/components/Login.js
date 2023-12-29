@@ -35,11 +35,11 @@ const Login = () => {
             } else {
                 // Handle user login here
                 const response = await axios.post('http://localhost:5001/v1/login', values);
-                console.log(response.data);
+                console.log(response.data.token);
                 toast.success('User Login successful', { autoClose: 3000 });
-                localStorage.setItem('valid', response.data);
+                localStorage.setItem('token', response.data.token);
                 localStorage.setItem('email', values.email);
-                window.alert(localStorage.getItem("email"));
+                // window.alert(localStorage.getItem("email"));
                 navigate('/User'); // Redirect to the User page
             }
         } catch (error) {
@@ -66,22 +66,24 @@ const Login = () => {
                     {({ errors, touched }) => (
                         <Form>
                             <div className="login-form">
-                                <div style={{ marginBottom: '25px' }}>
+                                <div >
                                     <Field
                                         name="email"
                                         type="email"
                                         placeholder="Email"
                                         style={{
                                             width: '100%',
+                                            margin:"10px",
                                             padding: '0.5rem',
                                             backgroundColor: '#66b3ff',
                                             fontSize: '18px',
                                             border: 'none',
+                                            
                                         }}
                                     />
-                                    <ErrorMessage name="email" component="div" className="error-message" />
+                                    <ErrorMessage name="email" component="div" className='text-danger' />
                                 </div>
-                                <div style={{ marginBottom: '25px' }}>
+                                <div >
                                     <Field
                                         name="password"
                                         type="password"
@@ -92,9 +94,11 @@ const Login = () => {
                                             backgroundColor: '#66b3ff',
                                             fontSize: '18px',
                                             border: 'none',
+                                            margin:"10px",
+
                                         }}
                                     />
-                                    <ErrorMessage name="password" component="div" className="error-message" />
+                                    <ErrorMessage name="password" component="div" className='text-danger'    />
                                 </div>
                                 <button className="login-button" type="submit">
                                     Login
@@ -102,9 +106,11 @@ const Login = () => {
                                 <div className="forgot-password">
                                     <a href="ForgotPassword">Forgot password?</a>
                                 </div>
-                                <Link to="/Signup" state={{}}>
-                                    <button className="create-account-button">Create new account</button>
-                                </Link>
+                                <div >
+                                    <p className="create-account-button">Don't have Account?  <span onClick={()=>{
+                                        navigate('/signup')
+                                    }}> SignUp</span> </p>
+                                </div>
                             </div>
                         </Form>
                     )}
