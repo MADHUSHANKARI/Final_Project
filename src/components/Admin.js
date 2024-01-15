@@ -4,6 +4,7 @@ import './Admin.css'
 import AdminNavbar from './AdminNavbar';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 import Bookings from './pages/Bookings';
+import image4 from './images/image4.jpg';
 
 import Settings from './pages/Settings';
 
@@ -30,7 +31,9 @@ const Admin = ({ setIsLoggedIn }) => {
                 {/* <Route path='/messages' Component={Messages}/> */}
          </Routes>
          
-        
+       
+        <div> <img src={image4} alt="image4" class="img-fluid"  />  
+</div>
         </div>
         
         
