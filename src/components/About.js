@@ -1,5 +1,5 @@
 // **content: Janoja **CSS:Dishoban ** //
-   
+
 
 import React from 'react';
 import './About.css';
@@ -67,7 +67,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="align1">
+        <div className="container">
           <div className="row">
             <div className="col-md-5">
               <img src="/image/transparancy.jpg" className="passion" />
